@@ -25,7 +25,10 @@ $factions = @(
     "Ultramarines"
 )
 
-$test = foreach ($faction in $factions){
+$getFaction = foreach ($faction in $factions){
     $faction
 }
-randomise -item $test | Select-Object -First 1
+
+$selectedFaction = randomise -item $getFaction | Select-Object -First 1
+
+$url = "https://warhammer40k.fandom.com/wiki/$selectedFaction"
